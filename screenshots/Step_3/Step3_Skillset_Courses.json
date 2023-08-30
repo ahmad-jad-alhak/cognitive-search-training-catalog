@@ -1,0 +1,52 @@
+{
+    "@odata.context": "https://udacity-cognitive-search.search.windows.net/$metadata#skillsets/$entity",
+    "@odata.etag": "\"0x8DBA814BB95C3E7\"",
+    "name": "azuretable-skillset-courses",
+    "description": "Skillset created from the portal. skillsetName: azuretable-skillset-courses; contentField: PartitionKey; enrichmentGranularity: document; knowledgeStoreStorageAccount: ;",
+    "skills": [
+      {
+        "@odata.type": "#Microsoft.Skills.Text.V3.EntityRecognitionSkill",
+        "name": "#1",
+        "description": null,
+        "context": "/document/PartitionKey",
+        "categories": [
+          "Product",
+          "PhoneNumber",
+          "Person",
+          "Quantity",
+          "Organization",
+          "IPAddress",
+          "URL",
+          "Email",
+          "Event",
+          "Skill",
+          "Location",
+          "PersonType",
+          "Address",
+          "DateTime"
+        ],
+        "defaultLanguageCode": "en",
+        "minimumPrecision": null,
+        "modelVersion": null,
+        "inputs": [
+          {
+            "name": "text",
+            "source": "/document/PartitionKey"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "persons",
+            "targetName": "people"
+          },
+          {
+            "name": "organizations",
+            "targetName": "organizations"
+          }
+        ]
+      }
+    ],
+    "cognitiveServices": null,
+    "knowledgeStore": null,
+    "encryptionKey": null
+  }
